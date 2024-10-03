@@ -1,0 +1,25 @@
+<li  [class]="[
+        'p-2',
+        'hover:surface-hover',
+        'border-round',
+        'border-1',
+        'border-transparent',
+        'transition-all',
+        'transition-duration-200',
+        'flex',
+        'align-items-center',
+        'justify-content-between'
+    ]">
+    <div class="flex align-items-center gap-2">
+        <p-chip [label]="car.id"  />
+        <img 
+            [alt]="car.brand" 
+            src="./svg/car.svg" 
+            style="width: 32px" />
+        <span class="font-bold">
+            {{ car.brand }}  {{ car.year }} 
+        </span>
+    </div>
+    <p-tag [value]="car.color" severity="info"></p-tag>
+    <p-tag [value]="car.price" severity="success"></p-tag>
+</li>

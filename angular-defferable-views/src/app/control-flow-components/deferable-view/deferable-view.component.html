@@ -1,0 +1,30 @@
+  @if (showGrid == false) {
+    <button pButton (click)="getGridData()">Get 10.000 Rows</button>
+    <hr />
+  }
+
+  @defer ( on timer(5000) ){
+
+    <!-- Big Grid with Data -->
+    <app-big-component></app-big-component>
+  } @placeholder (minimum 950ms){
+
+    <!-- Placeholder is that we display in meanwhile the component is loading -->
+    <app-skeleton-card></app-skeleton-card>
+
+  } @loading (after 750ms; minimum 1s) {
+    <!-- Loading only appears if the internet is slow and is still downloading the chunk.js -->
+    <p-progressBar 
+      mode="indeterminate" 
+      [style]="{ height: '6px' }" 
+      color="var(--avolta-purple)"/>
+    <p>Loading defereable with slow Internet...</p>
+
+  } @error {
+    <!-- This can happens if there is a network error during the download of the BIG COMPONENT -->
+
+    <h1 class="error-color">Something went Wrong...😢</h1>
+    <h1 class="error-color">Error Loading Bundle Chunk ⛔, check your network 🗜💻</h1>
+
+  }
+
