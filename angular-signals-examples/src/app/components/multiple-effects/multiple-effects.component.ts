@@ -18,15 +18,17 @@ export class MultipleEffectsComponent {
 
   constructor() {
     effect(() => {
-      // this method will be triggered ONLY when score and anotherCounter are updated
+      // this method will be triggered ONLY when counter is updated
       if (this.anotherCounter() === 0) {
-        console.log(`SCORE: ${this.score()}`);
+        console.log(`COUNTER: ${this.counter()}`);
+      } else {
+        console.log(`ANOTHER COUNTER: ${this.anotherCounter()}`);
       }
     });
 
     effect(() => {
-      // this method will be triggered ONLY when counter is updated
-      console.log(`COUNTER: ${this.counter()}`);
+      // this method will be triggered ONLY when score and anotherCounter are updated
+      console.log(`SCORE: ${this.score()}`);
     });
   }
 
