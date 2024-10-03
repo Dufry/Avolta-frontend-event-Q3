@@ -35,7 +35,7 @@ export class MultipleEffectsComponent {
   }
 
   increaseCounter() {
-    this.counter.update(value => value + 1); // this will increment the current value of score by 1
+    this.counter.update(value => value + 1); // this will increment the current value of counter by 1
   }
 
 }
